@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<!-- headタグの中にはメタデータ等を記載する -->
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<!-- bodyタグの中には実際に表示するものなどを書く -->
+<body>
+    <div class="topright">
+        <img src="JIG.png">
+    </div>
+    <div class="center">
+        <h1>しりとり</h1>
+       <!-- 現在の単語を表示する場所 -->
+       <p id="previousWord"></p>
+        <!-- 次の文字を入力するフォーム -->
+       
+       <p>Thank you for playing Shiritori!</p>
+       <button class="button button2" id="resetSendButton">リセット</button>
+    </body>
+    <script>
+        document.querySelector("#resetSendButton").onclick = async(event) => {
+       // POST /resetを実行
+       // ページをリロードする
+       const response = await fetch(
+         "/reset",
+         {
+           method: "POST",
+           
+         }
+       );
+       window.open("index.html", '_self');
+       const paragraph = document.querySelector("#previousWord");
+       const previousWord = await response.text();
+       paragraph.innerHTML = `前の単語: ${previousWord}`;
+     }
+    </script>
+</html>

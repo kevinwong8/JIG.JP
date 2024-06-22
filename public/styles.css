@@ -1,4 +1,81 @@
 /* public/styles.css */
 body {
-    background: skyblue;
+    margin: auto;
+    
+   
+    position: relative;
+    font-family: 'Lexend Deca', sans-serif;
+    
 }
+h1 {
+    text-align: center;
+    background-color: black;
+    display: inline-block;
+    color: white;
+    font-family: "Impact", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 300%;
+    border-radius: 12px 12px 12px 12px;
+  }
+
+p{
+    
+    
+    
+    color: black;
+    font-family: "Impact", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 100%;
+    border-radius: 12px 12px 12px 12px;
+    font-weight: bold;
+}
+img{
+    
+    width: 100px;
+    height: 100px;
+    
+    
+
+}
+.center {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+  }
+.button{
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 13px 16px;
+    border-radius: 12px 12px 12px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.button2{
+    background-color: rgba(189, 11, 11, 0.904);
+    padding: 13px 12px;
+    
+}
+.input{
+    
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    background-color: rgb(185, 185, 185);
+  }

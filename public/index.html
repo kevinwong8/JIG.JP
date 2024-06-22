@@ -9,12 +9,19 @@
 
 <!-- bodyタグの中には実際に表示するものなどを書く -->
 <body>
-    <h1>しりとり</h1>
+    <div class="topright">
+        <img src="JIG.png">
+    </div>
+    <div class="center">
+        <h1>しりとり</h1>
        <!-- 現在の単語を表示する場所 -->
        <p id="previousWord"></p>
         <!-- 次の文字を入力するフォーム -->
        <input id="nextWordInput" type="text" />
-       <button id="nextWordSendButton">送信</button>
+       <button class="button button1" id="nextWordSendButton">送信</button>
+       <button class="button button2" id="resetSendButton">リセット</button>
+    </div>
+    
    <!-- JavaScriptを実行 -->
    <script>
         window.onload = async (event) => {
@@ -51,7 +58,15 @@
        if (response.status !== 200) {
          const errorJson = await response.text();
          const errorObj = JSON.parse(errorJson);
+         // errorObj["errorCode"]ごとに処理を分岐する
++         // errorCodeが、末尾が「ん」の時のエラーだったら、ゲームを終了する
          alert(errorObj["errorMessage"]);
+         
+         if(response.status === 401 || response.status ===402){
+            window.open("end.html", '_self');
+         }
+            
+         
        }
        const previousWord = await response.text();
  
@@ -61,6 +76,21 @@
        paragraph.innerHTML = `前の単語: ${previousWord}`;
        // inputタグの中身を消去する
        nextWordInput.value = "";
+     }
+
+     document.querySelector("#resetSendButton").onclick = async(event) => {
+       // POST /resetを実行
+       // ページをリロードする
+       const response = await fetch(
+         "/reset",
+         {
+           method: "POST",
+           
+         }
+       );
+       const paragraph = document.querySelector("#previousWord");
+       const previousWord = await response.text();
+       paragraph.innerHTML = `前の単語: ${previousWord}`;
      }
     </script>
 </body>
