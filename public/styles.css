@@ -22,10 +22,10 @@ p{
     
     
     color: black;
-    font-family: "Impact", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: "Impact", Haettenschweiler, 'Arial Narrow', sans-serif;
     font-size: 100%;
     border-radius: 12px 12px 12px 12px;
-    font-weight: bold;
+    
 }
 img{
     
